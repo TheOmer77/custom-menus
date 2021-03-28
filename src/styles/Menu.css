@@ -1,0 +1,87 @@
+.menu,
+.menu .option {
+  box-sizing: border-box;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  border-top: none;
+  width: 100%;
+  z-index: 9999999;
+  user-select: none;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  background-color: white;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  animation: menuFadeIn var(--transition-duration) forwards;
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu.hidden {
+  display: none;
+}
+
+.menu.closing {
+  animation: menuFadeOut var(--transition-duration) forwards;
+}
+
+.menu .option {
+  list-style-type: none;
+  cursor: default;
+
+  padding: 0.5rem 0.75rem;
+  transition: background-color var(--transition-duration);
+}
+
+.menu .option:not(.disabled):hover {
+  background-color: var(--hover);
+}
+
+.menu .option:not(.disabled):active,
+.menu .option.selected {
+  background-color: var(--active);
+}
+
+.menu .option.disabled {
+  color: var(--border-color);
+}
+
+.menu .divider {
+  margin: 0.325rem 0;
+  background: none;
+  border-top: var(--border);
+  border-bottom: none;
+}
+
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes menuFadeOut {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}

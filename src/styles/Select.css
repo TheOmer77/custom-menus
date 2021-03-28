@@ -1,0 +1,61 @@
+.select,
+.select .value {
+  box-sizing: border-box;
+}
+
+.select {
+  width: max-content;
+  min-width: 8.75rem;
+  user-select: none;
+  display: inline-block;
+  position: relative;
+}
+
+.select.fluid {
+  width: 100%;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.select .value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: var(--border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 0.5rem 0.75rem;
+  transition: background-color var(--transition-duration),
+    border-radius var(--transition-duration);
+}
+
+.select .value::after {
+  content: '';
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top-color: black;
+  margin-inline-start: 1.5rem;
+  margin-block-start: 0.5rem;
+}
+
+.select .value.open,
+.select .value.open:hover {
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.select .value:hover,
+.select:focus .value {
+  background-color: var(--hover);
+}
+
+.select .value.open {
+  background-color: var(--active);
+}
+
+.select .menu {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  max-height: calc(100vh / 3);
+}
