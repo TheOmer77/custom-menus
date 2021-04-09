@@ -104,6 +104,7 @@ const contextMenuOptions = [
     value: 'copy',
     // onClick: () => console.log('COPY'),
     onClick: () =>
+      navigator.clipboard &&
       navigator.clipboard.writeText(window.getSelection().toString()),
   },
   {
